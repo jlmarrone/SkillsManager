@@ -1,0 +1,50 @@
+﻿@model SkillsManagerWebApplication.Models.UserProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">UserProfile</legend>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.UserName)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.FullName)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullName)
+    </div>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.Phone)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.Email)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.Dni)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dni)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-large" })
+</p>

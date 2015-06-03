@@ -1,0 +1,29 @@
+﻿@model SkillsManagerWebApplication.Models.Skill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Skill</legend>
+
+    <div class="display-label">
+        <strong>@Html.DisplayNameFor(model => model.Technology.Name)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Technology.Name)
+    </div>
+
+    <div class="display-label">
+         <strong>@Html.DisplayNameFor(model => model.Level)</strong>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Level)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SkillID }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-large" })
+</p>

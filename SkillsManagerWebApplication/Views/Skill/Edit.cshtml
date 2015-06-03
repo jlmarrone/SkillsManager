@@ -1,0 +1,46 @@
+﻿@model SkillsManagerWebApplication.Models.Skill
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Skill</legend>
+
+        @Html.HiddenFor(model => model.SkillID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TechnologyID, "Technology")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Technology.Name)
+            @Html.ValidationMessageFor(model => model.TechnologyID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Level)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Level", new SelectList(ViewBag.levelslist, Model))
+            @Html.ValidationMessageFor(model => model.Level)
+        </div>
+        @Html.HiddenFor(model => model.TechnologyID)
+
+        <p>
+            <input class="btn btn-primary btn-large" type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-large" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SkillsManagerWebApplication.Models.Skill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (Request.IsAuthenticated && (User.Identity.Name != "administrator"))
+      {
+         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-large" })
+      }
+    @if (Request.IsAuthenticated && (User.Identity.Name == "administrator"))
+      {
+        @Html.ActionLink("Back to Employees List", "Index", "UserProfile", null, new { @class = "btn btn-primary btn-large" })
+      }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Technology.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technology.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        <td>
+            @if (Request.IsAuthenticated && (User.Identity.Name != "administrator"))
+            {
+                @Html.ActionLink("Edit Level", "Edit", new { id=item.SkillID }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Details", "Details", new { id=item.SkillID }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id=item.SkillID }, new { @class = "btn btn-info btn-sm" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model SkillsManagerWebApplication.Models.Skill
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">Skill</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Technology.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Technology.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmployeeID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Level)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Level)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input class="btn btn-primary btn-large" type="submit" value="Delete" />
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-large" })
+    </p>
+}

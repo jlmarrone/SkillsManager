@@ -1,0 +1,8 @@
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\bin\Debug\Helpers.dll
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\bin\Debug\Helpers.pdb
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\obj\Debug\Helpers.csprojResolveAssemblyReference.cache
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\obj\Debug\Helpers.dll
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\obj\Debug\Helpers.pdb
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\bin\Debug\PasswordHasher.dll
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\bin\Debug\PasswordHasher.pdb
+c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\Helpers\bin\Debug\PasswordHasher.xml
