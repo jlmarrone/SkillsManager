@@ -54,3 +54,4 @@ c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplicati
 c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\SkillsManagerWebApplication\bin\PasswordHasher.xml
 c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\SkillsManagerWebApplication\obj\Debug\SkillsManagerWebApplication.Migrations.InitialCreate.resources
 c:\users\usuario\documents\visual studio 2012\Projects\SkillsManagerWebApplication\SkillsManagerWebApplication\obj\Debug\SkillsManagerWebApplication.csproj.GenerateResource.Cache
+C:\Users\Usuario\Documents\Visual Studio 2012\Projects\SkillsManagerWebApplication\SkillsManagerWebApplication\bin\Mvc.Mailer.dll

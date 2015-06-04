@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using SkillsManagerWebApplication.Models;
 using SkillsManagerWebApplication.DAL;
 using System.Net.Mail;
+using SkillsManagerWebApplication.Mailers;
 
 namespace SkillsManagerWebApplication.Controllers
 {
@@ -15,7 +16,13 @@ namespace SkillsManagerWebApplication.Controllers
     public class UserProfileController : Controller
     {
         private SkillDBContext db = new SkillDBContext();
-
+        
+        private IUserMailer _userMailer = new UserMailer();
+        public IUserMailer UserMailer
+        {
+            get { return _userMailer; }
+            set { _userMailer = value; }
+        }
         //
         // GET: /UserProfile/
 
@@ -65,37 +72,22 @@ namespace SkillsManagerWebApplication.Controllers
         public ActionResult Create(UserProfile userprofile)
         {
             string new_user_name        = userprofile.Email.Substring(0, userprofile.Email.IndexOf('@'));
+            string unenc_password       = userprofile.Password;
             string enc_password         = Helpers.SHA1.Encode(userprofile.Password);
             userprofile.UserName        = new_user_name;
             userprofile.Password        = enc_password;
             userprofile.ConfirmPassword = enc_password;
+
             userprofile.RememberMe = false;
             if (ModelState.IsValid)
             {
                 db.UserProfiles.Add(userprofile);
                 db.SaveChanges();
-                /* try
-                {
-                    string ADMIN_EMAIL = "skillseveris@gmail.com";
-                    string ADMIN_NAME  = "administrator";
 
-                    Mailer Cr = new Mailer();
-                    MailMessage msg = new MailMessage();
-
-                    msg.Subject = "Everis Skills Web Application - Account Created";
-                    msg.To.Add(new MailAddress(userprofile.Email));
-                    msg.From = new MailAddress(ADMIN_EMAIL, ADMIN_NAME);
-                    msg.Priority = MailPriority.High;
-
-                    msg.Body = "An account has been created for you on Skills Manager App. \n\n Your credentials are the following: UserName: " + userprofile.UserName + " Password: " + userprofile.Password + " Send from: Everis Skills Portal ";
-
-                    Cr.SendMessage (msg);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }*/
-
+                ViewBag.Name     = userprofile.UserName;
+                ViewBag.Password = userprofile.Password;
+                UserMailer.Welcome(userprofile.Email, new_user_name, unenc_password).Send();
+               
                 return RedirectToAction("Index");
             }
 
