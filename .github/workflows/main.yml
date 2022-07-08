@@ -1,0 +1,18 @@
+name: Sync multiple branches
+on:
+  push:
+    branches:
+      - 'workflow'
+jobs:
+  sync-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: workflow
+          target_branch: master
+          github_token: ${{ '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' }}
